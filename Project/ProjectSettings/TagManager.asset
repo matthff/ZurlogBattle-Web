@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy1
+  - Bullet1
+  - Enemy1_Splitted
+  - Ship
+  - GarbageCollector
+  - Enemy3
+  - Ammunition
+  - Enemy2
+  - Emitter
+  - ShieldPowerUp
+  - HUD
+  - TripleBulletPowerUp
+  - ShipBerserker
+  - ShipBerserkerPowerUp
+  - NukePowerUp
+  - LaserPowerUp
+  - Laser
+  - SoundManager
+  - BorderHazard
+  - ShipThrusts
+  - BordersPoints
+  - LevelLoader
+  - PurpleBombExplosionRadius
+  - PurpleBomb
+  - PurpleBombPowerUp
+  - Enemy4
+  - Enemy4Bullet
+  - OptionsPanel
+  - Enemy5
+  - TutorialPanel
+  - PassthroughBullet
+  - CombinedShot
+  - CombinedShotExplosionRadius
+  - ShipSelectorController
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - UI Background
+  - SceneryBorders
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ship Thrusts Fire
+    uniqueID: 2234876837
+    locked: 0
+  - name: Ship Weapon
+    uniqueID: 1070916229
+    locked: 0
+  - name: PurpleBomb
+    uniqueID: 2876121397
+    locked: 0
+  - name: PlayerShip
+    uniqueID: 2681487429
+    locked: 0
+  - name: UI
+    uniqueID: 965121513
+    locked: 0
