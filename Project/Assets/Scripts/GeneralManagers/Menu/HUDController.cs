@@ -1,15 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
 public class HUDController : MonoBehaviour
 {
+    GameObject playerShip;
+    [SerializeField] GameObject boostBarPanel = null;
     [SerializeField] Image boostBarImage = null;
     [SerializeField] Text shipAmmoText = null;
     [SerializeField] Text shipScoreText = null;
-    [SerializeField] Sprite[] bulletsTypesSprites = null;
-    [SerializeField] Image bulletTypeSprite = null;
+
+    [SerializeField] GameObject[] bulletTypeImgObj = null;
 
     [SerializeField] Image[] shieldSprites = null;
     [SerializeField] GameObject[] nukesSpritesObjects = null;
@@ -19,12 +22,32 @@ public class HUDController : MonoBehaviour
     [SerializeField] Image weaponTimeBarFillImage = null;
 
     ShipAttack shipAttackHandler;
+    ShipMovement shipMovementHandler;
     ScoreController shipScoreController;
+    ShipSelectorController shipSelectorController;
 
     void Awake(){
-        shipAttackHandler = GameObject.FindGameObjectWithTag("Ship").GetComponent<ShipAttack>();
+        //Only for debug purposes so i can start the main game scene without going on the menu before
+        //Have to remove this try-catch model later, cannot not have a ShipSelector Instance
+        try{
+            shipSelectorController = GameObject.FindGameObjectWithTag("ShipSelectorController").GetComponent<ShipSelectorController>();
+        }catch (Exception e){
+            Debug.Log("Missing ship selector object \n" + e.Message);
+        }  
+        //SetDefaultBulletTypeSprite();      
+        SetBulletTypeImagesByIndex(this.shipSelectorController.currentShipTypeIndex);
+
+        playerShip = GameObject.FindGameObjectWithTag("Ship");
+        shipAttackHandler =  playerShip.GetComponent<ShipAttack>();
+        shipMovementHandler = playerShip.GetComponent<ShipMovement>();
         shipScoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
         weaponTypeTimeBar.SetActive(false);
+    
+        if(shipMovementHandler.shipHaveBoost){
+            boostBarPanel.SetActive(true);
+        }else{
+            boostBarPanel.SetActive(false);
+        }
     }
 
     void FixedUpdate(){
@@ -98,19 +121,46 @@ public class HUDController : MonoBehaviour
         }
     }
 
+    void SetDefaultBulletTypeSprite(){
+        switch(shipSelectorController.currentShipTypeIndex){
+            case 0:
+                SetBulletTypeImagesByIndex(0);
+                break;
+            case 1:
+                SetBulletTypeImagesByIndex(1);
+                break;
+            case 2:
+                SetBulletTypeImagesByIndex(2);
+                break;
+            case 3:
+                SetBulletTypeImagesByIndex(3);
+                break;
+        }
+    }
+
+    void SetBulletTypeImagesByIndex(int index){
+        for(int i = 0; i < this.bulletTypeImgObj.Length; i++){
+            if(i != index){
+                this.bulletTypeImgObj[i].SetActive(false);
+            }else{
+                this.bulletTypeImgObj[i].SetActive(true);
+            }
+        }
+    }
+
     public void SetBulletTypeSprite(string bulletType){
         switch(bulletType){
             case "defaultBullet":
-                this.bulletTypeSprite.sprite = bulletsTypesSprites[0];
+                SetBulletTypeImagesByIndex(this.shipSelectorController.currentShipTypeIndex);
                 break;
             case "tripleBullet":
-                this.bulletTypeSprite.sprite = bulletsTypesSprites[1];
+                SetBulletTypeImagesByIndex(4);
                 break;
             case "laserStream":
-                this.bulletTypeSprite.sprite = bulletsTypesSprites[2];
+                SetBulletTypeImagesByIndex(5);
                 break;
             case "purpleBomb":
-                this.bulletTypeSprite.sprite = bulletsTypesSprites[3];
+                SetBulletTypeImagesByIndex(6);
                 break;
         }
         

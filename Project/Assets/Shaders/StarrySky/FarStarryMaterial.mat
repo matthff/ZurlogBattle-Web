@@ -42,7 +42,7 @@ Material:
     - _EnableExternalAlpha: 0
     - _OverallScale: 1.5
     - _Randomness: 5
-    - _Rotation: 4.871841
+    - _Rotation: 0
     - _StarsScale: 16
     - _Threshold: 0.98
     m_Colors:

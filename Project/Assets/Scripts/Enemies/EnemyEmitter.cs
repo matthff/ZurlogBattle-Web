@@ -10,6 +10,7 @@ public class EnemyEmitter : MonoBehaviour
     const int ENEMY3 = 2;
     const int ENEMY4 = 3;
     const int ENEMY5 = 4;
+    const int ENEMY6 = 5;
 
     [Header("Enemy Selection")] 
     [SerializeField]GameObject[] enemyPrefab = null;
@@ -33,14 +34,22 @@ public class EnemyEmitter : MonoBehaviour
         float chance = Random.Range(0, 100);
         if(chance <= 1){
             SpawnEnemy(this.enemyPrefab[ENEMY5], this.emissionOrientationType, this.directionOfEmission);
+            //Debug.Log("Spawned Enemy Type 5");
         }else if(chance > 1 && chance <= 3){
+            SpawnEnemy(this.enemyPrefab[ENEMY6], this.emissionOrientationType, this.directionOfEmission);
+            //Debug.Log("Spawned Enemy Type 6");
+        }else if(chance > 3 && chance <= 8){
             SpawnEnemy(this.enemyPrefab[ENEMY4], this.emissionOrientationType, this.directionOfEmission);
-        }else if(chance > 3 && chance <= 20){  
+            //Debug.Log("Spawned Enemy Type 4");
+        }else if(chance > 8 && chance <= 20){  
             SpawnEnemy(this.enemyPrefab[ENEMY3], this.emissionOrientationType, this.directionOfEmission);
+            //Debug.Log("Spawned Enemy Type 3");
         }else if(chance > 20 && chance <= 40){  
             SpawnEnemy(this.enemyPrefab[ENEMY1], this.emissionOrientationType, this.directionOfEmission);
+            //Debug.Log("Spawned Enemy Type 1");
         }else if(chance > 40 && chance <= 100){
             SpawnEnemy(this.enemyPrefab[ENEMY2], this.emissionOrientationType, this.directionOfEmission);
+            //Debug.Log("Spawned Enemy Type 2");
         }
     }
 
@@ -88,6 +97,12 @@ public class EnemyEmitter : MonoBehaviour
                 break;
             case "Enemy5":
                 enemySpawned = Instantiate(enemyPrefab,RandomEmissionPointInEmitterLimits(this.emitterType),transform.rotation);
+                break;
+            case "Enemy6":
+                enemySpawned = Instantiate(enemyPrefab,RandomEmissionPointInEmitterLimits(this.emitterType),transform.rotation);
+                Enemy6Movement enemyTypeSixSpawnedMovementController = enemySpawned.GetComponent<Enemy6Movement>();
+                enemyTypeSixSpawnedMovementController.direction = direction;
+                enemyTypeSixSpawnedMovementController.typeOfDirection = orientation;
                 break;
         }
         

@@ -22,7 +22,8 @@ public class ShipAttack : MonoBehaviour
 
     [HideInInspector] public bool shipHasSpecialBullet;
     int shipAmmo;
-    [SerializeField] float fireRate = 0;
+    [SerializeField] float baseShipFireRate = 0f;
+    float fireRate = 0f;
     bool fireAllowed;
     
     bool hasBerserkerMode;
@@ -51,7 +52,7 @@ public class ShipAttack : MonoBehaviour
         nukeDelayTime = 8f;
         weaponsDelayTime = 10f;
 
-        //fireRate = 0.4f;
+        fireRate = baseShipFireRate;
         fireAllowed = true;
         hasBerserkerMode = false;
         hasLaserMode = false;
@@ -164,7 +165,7 @@ public class ShipAttack : MonoBehaviour
 
     public void ResetFiringSystem(){
         //fireAllowed = true;
-        this.fireRate = 0.4f;
+        this.fireRate = this.baseShipFireRate;
         this.typeOfFiringSystem = "defaultBullet";
         shipHasSpecialBullet = false;
         hudController.DeactivateWeaponTypeBar();
@@ -180,7 +181,7 @@ public class ShipAttack : MonoBehaviour
         //See the current solution on ShipCollisionPowerUp switch(case)...
         //Debug.Log(Time.time);
         hudController.SetWeaponTypeBarActive();
-        this.fireRate = 0.4f;
+        this.fireRate = this.baseShipFireRate;
         shipHasSpecialBullet = true;
         this.typeOfFiringSystem = typeOfFireSystem;
         hudController.SetBulletTypeSprite(this.typeOfFiringSystem);
@@ -192,7 +193,7 @@ public class ShipAttack : MonoBehaviour
     public IEnumerator ActivatePurpleBombFiringSystem(string typeOfFireSystem){
         hudController.SetWeaponTypeBarActive();
         hudController.SetWeaponWeaponTypeBarColor(new Color32(148, 0, 221, 255));
-        this.fireRate = 0.6f;
+        this.fireRate = 0.8f;
         shipHasSpecialBullet = true;
         this.typeOfFiringSystem = typeOfFireSystem;
         hudController.SetBulletTypeSprite(this.typeOfFiringSystem);
@@ -275,6 +276,7 @@ public class ShipAttack : MonoBehaviour
         GameObject[] allEnemiesType3 = GameObject.FindGameObjectsWithTag("Enemy3");
         GameObject[] allEnemiesType4 = GameObject.FindGameObjectsWithTag("Enemy4");
         GameObject[] allEnemiesType5 = GameObject.FindGameObjectsWithTag("Enemy5");
+        GameObject[] allEnemiesType6 = GameObject.FindGameObjectsWithTag("Enemy6");
 
         NukeDamageOnEnemies(allEnemiesType1, "Enemy1");
         NukeDamageOnEnemies(allEnemiesType1Splitted, "Enemy1_Splitted");
@@ -282,6 +284,7 @@ public class ShipAttack : MonoBehaviour
         NukeDamageOnEnemies(allEnemiesType3, "Enemy3");
         NukeDamageOnEnemies(allEnemiesType4, "Enemy4");
         NukeDamageOnEnemies(allEnemiesType5, "Enemy5");
+        NukeDamageOnEnemies(allEnemiesType6, "Enemy6");
     }
 
     void NukeDamageOnEnemies(GameObject[] allEnemiesFromOneType, string typeToAddScore){
@@ -346,12 +349,12 @@ public class ShipAttack : MonoBehaviour
         GameObject[] bordersPoints = GameObject.FindGameObjectsWithTag("BordersPoints");
         foreach(GameObject borderPoint in bordersPoints){
             SpriteRenderer borderPointSprite = borderPoint.GetComponent<SpriteRenderer>();
-            borderPointSprite.enabled = false; 
+            //borderPointSprite.enabled = false; 
         }
         yield return new WaitForSeconds(0.1f);
         foreach(GameObject borderPoint in bordersPoints){
             SpriteRenderer borderPointSprite = borderPoint.GetComponent<SpriteRenderer>();
-            borderPointSprite.enabled = true; 
+            //borderPointSprite.enabled = true; 
         }
     }
 }

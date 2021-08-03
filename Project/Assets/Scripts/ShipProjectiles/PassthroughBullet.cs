@@ -72,6 +72,9 @@ public class PassthroughBullet : MonoBehaviour
             case "Enemy5":
                 this.passthroughsCounter++;
                 break;
+            case "Enemy6":
+                this.passthroughsCounter++;
+                break;
             case "BordersPoints":
                 StartCoroutine(BulletHit());
                 break;

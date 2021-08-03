@@ -35,31 +35,39 @@ public class ShipCollisionController : MonoBehaviour
         switch(collision.gameObject.tag){
             case "Enemy1":
                 shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
-                shipHealthManager.StartCoroutine("playerDamage");
+                shipHealthManager.PlayerDamage(1);
                 break;
             case "Enemy1_Splitted":
                 shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
-                shipHealthManager.StartCoroutine("playerDamage");
+                shipHealthManager.PlayerDamage(1);
                 break;
             case "Enemy2":
                 shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
-                shipHealthManager.StartCoroutine("playerDamage");
+                shipHealthManager.PlayerDamage(1);
                 break;
             case "Enemy3":
                 shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
-                shipHealthManager.StartCoroutine("playerDamage");
+                shipHealthManager.PlayerDamage(1);
                 break;
             case "Enemy4":
                 shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
-                shipHealthManager.StartCoroutine("playerDamage");
+                shipHealthManager.PlayerDamage(1);
                 break;
             case "Enemy4Bullet":
                 shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
-                shipHealthManager.StartCoroutine("playerDamage");
+                shipHealthManager.PlayerDamage(1);
                 break;
             case "Enemy5":
                 shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
-                shipHealthManager.StartCoroutine("playerDamage");
+                shipHealthManager.PlayerDamage(1);
+                break;
+            case "Enemy6":
+                shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
+                shipHealthManager.PlayerDamage(1);
+                break;
+            case "Enemy6Bullet":
+                shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
+                shipHealthManager.PlayerDamage(1);
                 break;
         }
     }

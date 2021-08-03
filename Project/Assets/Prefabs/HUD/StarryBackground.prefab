@@ -114,6 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   farStarsBackground: {fileID: 9052478128617093435}
   nearStarsBackgroung: {fileID: 9052478128150250540}
+  farStarsMaterial: {fileID: 2100000, guid: fd261a7559c4b7e46b0408dff7748321, type: 2}
+  nearStarsMaterial: {fileID: 2100000, guid: 21c3d51e71f381947a79972471d63f47, type: 2}
 --- !u!1 &9052478127724505106
 GameObject:
   m_ObjectHideFlags: 0

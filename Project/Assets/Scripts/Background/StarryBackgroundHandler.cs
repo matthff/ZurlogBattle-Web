@@ -21,14 +21,17 @@ using UnityEngine.UI;
 public class StarryBackgroundHandler : MonoBehaviour
 {
     [SerializeField]Image farStarsBackground = null, nearStarsBackgroung = null;
-    Material farStarsMaterial, nearStarsMaterial;
-    
-    void Awake(){
-        farStarsMaterial = farStarsBackground.material;
-        nearStarsMaterial = nearStarsBackgroung.material;
+    [SerializeField]Material farStarsMaterial = null, nearStarsMaterial = null;
 
-        farStarsMaterial.SetFloat("_Rotation", 0f);
-        nearStarsMaterial.SetFloat("_Rotation", 0f);
+    void Awake(){
+        farStarsBackground.GetComponent<Image>().material = new Material(farStarsMaterial);
+        nearStarsBackgroung.GetComponent<Image>().material = new Material(nearStarsMaterial);
+
+        var farMat = farStarsBackground.GetComponent<Image>().material;
+        var nearMat = nearStarsBackgroung.GetComponent<Image>().material;
+        
+        farStarsBackground.GetComponent<Image>().material.SetFloat("_Rotation", 0f);
+        nearStarsBackgroung.GetComponent<Image>().material.SetFloat("_Rotation", 0f);
         InvokeRepeating("RotateFarStars", 0f, Time.deltaTime);
         InvokeRepeating("RotateNearStars", 0f, Time.deltaTime);
     }
@@ -38,18 +41,22 @@ public class StarryBackgroundHandler : MonoBehaviour
     }
 
     void RotateFarStars(){
-        if(farStarsMaterial.GetFloat("_Rotation") != 360f){
-            farStarsMaterial.SetFloat("_Rotation", farStarsMaterial.GetFloat("_Rotation") + Time.deltaTime * 0.8f);
-        }else if(farStarsMaterial.GetFloat("_Rotation") >= 360f){
-            farStarsMaterial.SetFloat("_Rotation", 0f);
+        var farMat = farStarsBackground.GetComponent<Image>().material;
+
+        if(farMat.GetFloat("_Rotation") != 360f){
+            farMat.SetFloat("_Rotation", farMat.GetFloat("_Rotation") + Time.deltaTime * 0.8f); //0.8f
+        }else if(farMat.GetFloat("_Rotation") >= 360f){
+            farMat.SetFloat("_Rotation", 0f);
         }
     }
 
     void RotateNearStars(){
-        if(nearStarsMaterial.GetFloat("_Rotation") != 360f){
-            nearStarsMaterial.SetFloat("_Rotation", nearStarsMaterial.GetFloat("_Rotation") + Time.deltaTime * 0.4f);
-        }else if(nearStarsMaterial.GetFloat("_Rotation") >= 360f){
-            nearStarsMaterial.SetFloat("_Rotation", 0f);
+        var nearMat = nearStarsBackgroung.GetComponent<Image>().material;
+
+        if(nearMat.GetFloat("_Rotation") != 360f){
+            nearMat.SetFloat("_Rotation", nearMat.GetFloat("_Rotation") + Time.deltaTime * 0.4f); //0.4f
+        }else if(nearMat.GetFloat("_Rotation") >= 360f){
+            nearMat.SetFloat("_Rotation", 0f);
         }
     }
 }

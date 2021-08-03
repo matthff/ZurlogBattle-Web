@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 485267806}
   - component: {fileID: 485267807}
   - component: {fileID: 485267808}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Engine Thrust
   m_TagString: ShipThrusts
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   m_Children:
   - {fileID: 917492851}
   m_Father: {fileID: 5047457157833378532}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 269.31}
 --- !u!212 &485267807
 SpriteRenderer:
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2060090459
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2073c139b198a6b4eb0b73e11b223778, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -113,7 +113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 917492851}
   - component: {fileID: 917492852}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,6 +175,89 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &2322778426445812189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2432165170058716748}
+  - component: {fileID: 5818126895841344794}
+  - component: {fileID: 953644554983547590}
+  m_Layer: 13
+  m_Name: PhysicalCollider
+  m_TagString: ShipPhysical
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2432165170058716748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2322778426445812189}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5047457157833378532}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &5818126895841344794
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2322778426445812189}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 001466eef878b5142873e32a1434c2dc, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 1.28, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.296875, y: 0.109375}
+      - {x: 0.265625, y: 0.25}
+      - {x: 0.15625, y: 0.375}
+      - {x: 0.140625, y: 0.59375}
+      - {x: 0.125, y: 0.625}
+      - {x: -0.09375, y: 0.625}
+      - {x: -0.171875, y: 0.59375}
+      - {x: -0.296875, y: 0.03125}
+      - {x: -0.296875, y: -0.390625}
+      - {x: -0.25, y: -0.609375}
+      - {x: -0.171875, y: -0.640625}
+      - {x: 0.15625, y: -0.640625}
+      - {x: 0.203125, y: -0.59375}
+      - {x: 0.296875, y: -0.34375}
+--- !u!114 &953644554983547590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2322778426445812189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d3dc618c77c20342bfc44b3d486e2e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2890015558537374021
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2890015558537374022}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ShipCannon (1)
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -203,7 +286,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5047457157833378532}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10}
 --- !u!1 &2890015558700297716
 GameObject:
@@ -219,7 +302,7 @@ GameObject:
   - component: {fileID: 2890015558700297712}
   - component: {fileID: 172265030}
   - component: {fileID: 1375124833}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ShipBerserker
   m_TagString: ShipBerserker
   m_Icon: {fileID: 0}
@@ -238,7 +321,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5047457157833378532}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2890015558700297718
 SpriteRenderer:
@@ -278,7 +361,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1070916229
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 688829450379684171, guid: 771533362bf5a0348b822619b0d2d408, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -472,7 +555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2890015559546166529}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ShipCannon (2)
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -491,7 +574,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5047457157833378532}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10}
 --- !u!1 &3671598016002585987
 GameObject:
@@ -505,7 +588,7 @@ GameObject:
   - component: {fileID: 902332822304520047}
   - component: {fileID: 6327993106980091429}
   - component: {fileID: 835252710}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: laserPart1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,7 +647,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1070916229
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 99a9543e19794064290aac1f7d4b977c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -649,7 +732,7 @@ GameObject:
   - component: {fileID: 1809112463288329990}
   - component: {fileID: 6398933519297279341}
   - component: {fileID: 2117677069}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LaserHolder
   m_TagString: Laser
   m_Icon: {fileID: 0}
@@ -669,7 +752,7 @@ Transform:
   m_Children:
   - {fileID: 6898548288085495214}
   m_Father: {fileID: 5047457157833378532}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!50 &1809112463288329990
 Rigidbody2D:
@@ -813,7 +896,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5047457156811958335}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ShipCannon
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -832,7 +915,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5047457157833378532}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5047457157833378523
 GameObject:
@@ -851,7 +934,7 @@ GameObject:
   - component: {fileID: 5047457157833378529}
   - component: {fileID: 5047457157833378528}
   - component: {fileID: 4456794381386558865}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PurpleShip
   m_TagString: Ship
   m_Icon: {fileID: 0}
@@ -869,6 +952,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 2432165170058716748}
   - {fileID: 5047457156811958335}
   - {fileID: 2890015558537374022}
   - {fileID: 2890015559546166529}
@@ -942,7 +1026,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 3
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -1108,7 +1192,6 @@ MonoBehaviour:
   rotationSpeed: 300
   boostForce: 8
   boostDelay: 3
-  boostingTime: 0.3
 --- !u!114 &5047457157833378529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1132,7 +1215,8 @@ MonoBehaviour:
   shipBerserker: {fileID: 2890015558700297716}
   shipLaser: {fileID: 5043434744138947399}
   shipHasSpecialBullet: 0
-  fireRate: 0.4
+  baseShipFireRate: 0.4
+  fireRate: 0
 --- !u!114 &5047457157833378528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1171,7 +1255,7 @@ GameObject:
   - component: {fileID: 630222280363166818}
   - component: {fileID: 4749646862394821176}
   - component: {fileID: 1757115488}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: laserPart2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1230,7 +1314,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1070916229
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 99a9543e19794064290aac1f7d4b977c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1312,7 +1396,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6898548288085495214}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}

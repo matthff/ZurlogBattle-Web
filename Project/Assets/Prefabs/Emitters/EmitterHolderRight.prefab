@@ -143,6 +143,7 @@ MonoBehaviour:
   - {fileID: 2342282478849482543, guid: 1f9d70ab905822742a7442ceaad8b364, type: 3}
   - {fileID: 7267878922114323982, guid: 7b8d42a2e8bb3eb4fb132c9eb764743a, type: 3}
   - {fileID: 6252472049845905102, guid: 579c492c00388f2439c91ec3d65db784, type: 3}
+  - {fileID: 1945504147816210422, guid: 60df033f1c692ec41b9c74a4d8e7d94c, type: 3}
   emissionStartPoint: {fileID: 8735942752393341228}
   emissionEndPoint: {fileID: 239715493278953079}
   emissionOrientationType: Horizontal

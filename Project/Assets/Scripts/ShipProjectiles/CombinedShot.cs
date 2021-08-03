@@ -80,6 +80,9 @@ public class CombinedShot : MonoBehaviour
             case "Enemy5":
                 StartCoroutine(BulletExplosion());
                 break;
+            case "Enemy6":
+                StartCoroutine(BulletExplosion());
+                break;
             case "BordersPoints":
                 StartCoroutine(BulletExplosion());
                 break;

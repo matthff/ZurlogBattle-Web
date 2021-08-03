@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField]GameObject[] shipsHolderReference = null;
-    ShipSelectorController shipSelectorController ;
+    ShipSelectorController shipSelectorController = null;
 
     LevelLoader levelLoaderController;
     SoundController soundController;
@@ -32,14 +32,19 @@ public class GameController : MonoBehaviour
     [SerializeField] Transform bottomEmitter = null;
 
     void Awake(){
-        shipSelectorController = GameObject.FindGameObjectWithTag("ShipSelectorController").GetComponent<ShipSelectorController>();
+        //Only for debug purposes so i can start the main game scene without going on the menu before
+        //Have to remove this try-catch model later, cannot not have a ShipSelector Instance
+        try{
+            shipSelectorController = GameObject.FindGameObjectWithTag("ShipSelectorController").GetComponent<ShipSelectorController>();
+            shipsHolderReference[shipSelectorController.currentShipTypeIndex].SetActive(true);
+        }catch (Exception e){
+            //Instatiate default ship
+            shipsHolderReference[0].SetActive(true);
+            Debug.Log("MainGame Scene started via editor directly, loaded deafult ship then \n" + e.Message);
+        }
+
         soundController = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundController>();
         levelLoaderController = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LevelLoader>();
-
-        //Only for debug, until some better system for loading a initial ship is implemented
-        //shipsHolderReference[2].SetActive(true);
-
-        shipsHolderReference[shipSelectorController.currentShipTypeIndex].SetActive(true);
 
         soundController.playMusic();
 

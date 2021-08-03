@@ -12,10 +12,14 @@ public class ShipHealthManager : MonoBehaviour
     bool isShipInDamagedState, isShipInvencible;
     int playerShield;
 
+    SpriteRenderer playerSprite, thrustsSprites;
+
     void Awake(){
         shipPlayer = GameObject.FindGameObjectWithTag("Ship");
         soundController = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundController>();
         levelLoaderController = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LevelLoader>();
+        playerSprite = shipPlayer.GetComponent<SpriteRenderer>();
+        thrustsSprites = GameObject.FindGameObjectWithTag("ShipThrusts").GetComponent<SpriteRenderer>();
 
         isShipInvencible = false; //God Mode for Debug purposes
         
@@ -25,40 +29,46 @@ public class ShipHealthManager : MonoBehaviour
     }
 
 
-    IEnumerator playerDamage(){
+    public void PlayerDamage(int amount){
         if(!isShipInDamagedState && isShipInvencible == false){
             isShipInDamagedState = true;
             if(playerShield > 0){
-                StartCoroutine(DamageTaken());
+                StartCoroutine(DamageTaken(amount));
                 hudController.UpdateShieldHUD(this.playerShield);
                 //Debug.Log("ShipShield: " + playerShield);
             }else{
-                //TODO: Ship's death and handle the game's scenes resets, a.k.a Game Ending Handler
-                GameObject[] emitters = GameObject.FindGameObjectsWithTag("Emitter");
-                foreach(GameObject emitter in emitters){
-                    emitter.SetActive(false);
-                }
-                SetPlayerInactive();
-                GameObject shipDeathAnimObj = Instantiate(shipDeathObject, shipPlayer.transform.position, shipPlayer.transform.rotation);
-                soundController.playSFX("shipDeath");
-                //For now, it's better to instantaneously end the game upon death hit, until find a way
-                //for not get NullReference on emmiters spawn objects on "game end" delay
-                yield return new WaitForSeconds(1f);
-                Destroy(shipDeathAnimObj);
-                yield return new WaitForSeconds(1f);
-                levelLoaderController.LoadLevelWithName("GameOverScene");
+                StartCoroutine(PlayerDeath());
             }
         }
     }
 
-    IEnumerator DamageTaken(){
-        playerShield--;
+    public IEnumerator PlayerDeath(){
+        //TODO: Ship's death and handle the game's scenes resets, a.k.a Game Ending Handler
+        foreach(Collider2D collider in shipPlayer.GetComponents<Collider2D>()){
+            collider.enabled = false;
+        }
+        playerSprite.enabled = false;
+        thrustsSprites.enabled = false;
+        GameObject[] emitters = GameObject.FindGameObjectsWithTag("Emitter");
+        foreach(GameObject emitter in emitters){
+            emitter.SetActive(false);
+        }
+        SetPlayerInactive();
+        GameObject shipDeathAnimObj = Instantiate(shipDeathObject, shipPlayer.transform.position, shipPlayer.transform.rotation);
+        soundController.playSFX("shipDeath");
+        //For now, it's better to instantaneously end the game upon death hit, until find a way
+        //for not get NullReference on emmiters spawn objects on "game end" delay
+        yield return new WaitForSeconds(1f);
+        Destroy(shipDeathAnimObj);
+        yield return new WaitForSeconds(1f);
+        levelLoaderController.LoadLevelWithName("GameOverScene");
+    }
+
+    IEnumerator DamageTaken(int amount){
+        playerShield -= amount;
         soundController.playSFX("shipHitDamage");
         Color hitColor = new Color(1, 0, 0, 1);
         Color noHitColor = new Color(1, 1, 1, 0.5f);
-        SpriteRenderer playerSprite = shipPlayer.GetComponent<SpriteRenderer>();
-        SpriteRenderer thrustsSprites = GameObject.FindGameObjectWithTag("ShipThrusts").GetComponent<SpriteRenderer>();
-        
         playerSprite.color = noHitColor;
         thrustsSprites.color = noHitColor;
         yield return new WaitForSeconds(0.1f);

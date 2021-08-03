@@ -90,6 +90,12 @@ public class EnemyCollisionHandler : MonoBehaviour
                 this.isDissolving = true;
                 DisableEnemyCollision();
                 break;
+            case "Enemy6":
+                shipScoreController.AddScore(110);
+                shipScoreController.SpawnScorePopUpText(this.transform.position, 110);
+                this.isDissolving = true;
+                DisableEnemyCollision();
+                break;
         }
     }
 
@@ -171,6 +177,10 @@ public class EnemyCollisionHandler : MonoBehaviour
                 enemyCollider = GetComponent<CircleCollider2D>();
                 enemyCollider.enabled = false;
                 break;
+            case "Enemy6":
+                enemyCollider = GetComponent<CircleCollider2D>();
+                enemyCollider.enabled = false;
+                break;
         }
     }
 
@@ -185,6 +195,11 @@ public class EnemyCollisionHandler : MonoBehaviour
             case "PassthroughBullet":
                 soundController.playSFX("enemyBulletHit");
                 SetDissolveColor(new Vector4(4, 190, 4, 0));
+                DestroyEnemy(this.gameObject.tag, collision);          
+                break;
+            case "BouncerBullet":
+                soundController.playSFX("enemyBulletHit");
+                SetDissolveColor(new Vector4(254, 254, 73, 255));
                 DestroyEnemy(this.gameObject.tag, collision);          
                 break;
             case "PurpleBombExplosionRadius":
@@ -229,11 +244,19 @@ public class EnemyCollisionHandler : MonoBehaviour
                     DestroyEnemy(this.gameObject.tag, collision);
                 }         
                 break;
+            case "BouncerBullet":
+                soundController.playSFX("enemyBulletHit");
+                enemyHealthManager.EnemyHit(1);
+                if(enemyHealthManager.GetCurrentHealth() <= 0){
+                    SetDissolveColor(new Vector4(254, 254, 73, 2555));
+                    DestroyEnemy(this.gameObject.tag, collision);
+                }         
+                break;
             case "PassthroughBullet":
                 soundController.playSFX("enemyBulletHit");
                 enemyHealthManager.EnemyHit(1);
                 if(enemyHealthManager.GetCurrentHealth() <= 0){
-                    SetDissolveColor(new Vector4(0, 191, 0, 175));
+                    SetDissolveColor(new Vector4(4, 190, 4, 0));
                     DestroyEnemy(this.gameObject.tag, collision);
                 }         
                 break;
@@ -241,7 +264,7 @@ public class EnemyCollisionHandler : MonoBehaviour
                 soundController.playSFX("enemyBulletHit");
                 enemyHealthManager.EnemyHit(1);
                 if(enemyHealthManager.GetCurrentHealth() <= 0){
-                    SetDissolveColor(new Vector4(0, 191, 0, 175));
+                    SetDissolveColor(new Vector4(252, 169, 3, 255));
                     DestroyEnemy(this.gameObject.tag, collision);
                 }         
                 break;

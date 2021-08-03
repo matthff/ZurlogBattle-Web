@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5715544749436902484}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point4
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2328102688987101563}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 2315366849348703884}
   - component: {fileID: 4857435160571626989}
   - component: {fileID: 985212841891439704}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy1
   m_TagString: Enemy1
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2582180264236035660}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point3
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -348,7 +348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4906309579444529314}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point2
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -378,7 +378,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7802979430115219068}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SplittedPartsSpawnPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}

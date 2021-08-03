@@ -60,7 +60,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 503d784f5e2613a43996121e24f12471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movSpeed: 9
   ammoParentTransform: {fileID: 5274749713894301074}
 --- !u!1 &1131602849896780551
 GameObject:
@@ -195,7 +194,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1131602849896780551}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 66481bac4e005434f9613c8715ac9846, type: 2}
   m_CullingMode: 0
@@ -307,7 +306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 503d784f5e2613a43996121e24f12471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movSpeed: 18
   ammoParentTransform: {fileID: 5274749713894301074}
 --- !u!1 &5274749713894301075
 GameObject:

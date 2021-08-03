@@ -46,6 +46,9 @@ public class DefaultBullet : MonoBehaviour
             case "Enemy5":
                 DestroyBullet();
                 break;
+            case "Enemy6":
+                DestroyBullet();
+                break;
         }
     }
 }
