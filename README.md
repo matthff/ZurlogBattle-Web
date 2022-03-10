@@ -6,4 +6,4 @@
 
 ## Hope you enjoy this little demo, the game's still in development 👾 
 
-[Click here to play it](https://honoredprince.github.io/ZurlogBattle-Web/).
+[Click here to play it](https://matthff.github.io/ZurlogBattle-Web/).
